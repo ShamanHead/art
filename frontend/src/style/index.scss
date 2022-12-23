@@ -1,0 +1,342 @@
+@import "./reset.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    overflow-x: hidden;
+    color: white;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url("../../public/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 {
+    @apply mb-3;
+
+    text-align: center;
+    font-size: 2em;
+}
+
+$color: rgba(0,0,0,0.5);
+
+.contents {
+    min-height: 100vh;
+}
+
+.error {
+    @apply flex flex-col justify-center items-center;
+
+    height: 100vh;
+    width: 100vw;
+
+    font-size: 2em;
+
+    .name {
+        font-size: 4.5em;
+    }
+}
+
+footer {
+    @apply flex justify-center box-border w-full p-3;
+
+
+    background-color: $color;
+}
+
+header {
+    @apply z-10 md:z-0 flex flex-row w-full p-4 box-border fixed md:relative;
+
+    background-color:$color;
+ 
+
+    .header-content {
+        @apply w-full flex flex-row justify-between;
+    }
+
+    &.name {
+        font-size: 1.5em;
+    }
+
+    .bm-burger-button {
+        @apply md:hidden;
+        position: fixed;
+        width: 25px;
+        height: 15px;
+        right: 25px;
+        top: 17px;
+    }
+    
+    /* Color/shape of burger icon bars */
+    .bm-burger-bars {
+      background: #373a47;
+    }
+    
+    /* Color/shape of burger icon bars on hover*/
+    .bm-burger-bars-hover {
+      background: #a90000;
+    }
+    
+    /* Position and sizing of clickable cross button */
+    .bm-cross-button {
+      height: 24px;
+      width: 24px;
+    }
+    
+    /* Color/shape of close button cross */
+    .bm-cross {
+      background: #bdc3c7;
+    }
+    
+    /*
+    Sidebar wrapper styles
+    Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+    */
+    .bm-menu-wrap {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    
+    /* General sidebar styles */
+    .bm-menu {
+        background: #373a47;
+        padding: 2.5em 1.5em 0;
+        font-size: 1.15em;
+    }
+    
+    /* Morph shape necessary with bubble or elastic */
+    .bm-morph-shape {
+        fill: #373a47;
+    }
+    
+    /* Wrapper for item list */
+    .bm-item-list {
+        color: #b8b7ad;
+
+        .router-item {
+            &.active {
+                background-color: inherit;
+                color: inherit;
+            }
+        }
+    }
+    
+    /* Individual item */
+    .bm-item {
+        display: inline-block;
+    }
+    
+    /* Styling of overlay */
+    .bm-overlay {
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .header-navigation {
+        @apply hidden md:block; 
+
+        a {
+            @apply mr-4;   
+        }
+    }
+}
+
+.games {
+    @apply pt-10 md:pt-0 flex flex-col items-center;
+}
+
+.game-slider {
+    @apply flex flex-col w-10/12 m-4 p-4;
+
+ 
+
+    .slides {
+        @apply w-full;
+        background-color: $color;
+    }
+
+    .slide {
+        @apply flex flex-col items-center md:flex-row md:justify-between pt-4 pb-4;
+   
+
+        .info {
+            @apply h-full w-9/12 mt-5 md:mt-0 md:w-1/2 md:ml-5 box-border;
+
+            &-piece {
+                @apply mb-2;
+                font-size: 1.2em;
+
+                &.price {
+                    @apply flex mt-7;
+                    
+                    font-size: 1.3em;
+
+                    .real-price {
+                        @apply ml-4;
+                        color: red;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+
+            .name {
+                @apply mb-4;
+                font-size: 1.5em;
+            } 
+
+            .buttons {
+                @apply self-end pt-7 w-full flex justify-between md:justify-start;
+
+                font-size: 1.5em;
+
+                a {
+                    @apply pt-2 pb-2 pr-3 pl-3 md:mr-4;
+                    
+                    border-radius: 50px;
+                    background-color: red;
+                }
+
+                .cart-button {
+                    @apply flex justify-center items-center;
+                    border-radius: 50px;
+                    width: 20px;
+                    height: 27px;
+                }
+            }
+        }
+
+        &.vertical {
+            @apply flex flex-col justify-center items-center;
+            .info {
+                @apply flex flex-col justify-center items-center m-0;
+
+                .name {
+                    @apply mt-5;
+                }
+
+                .info-piece {
+                    @apply hidden;
+                    &.price {
+                        @apply flex m-0;
+                    }
+                }
+
+                .buttons {
+                    @apply flex justify-center;
+                    a {
+                        @apply m-0;
+                        border-radius: 0;
+                    }
+
+                    .cart-button {
+                        @apply hidden;
+                    }
+                }
+            }
+
+            img {
+                @apply w-full;
+            }
+        }
+        img {
+            @apply h-auto w-9/12 md:w-1/2
+        }
+    }
+}
+
+.catalog {
+    @apply w-10/12;
+
+    h2 {
+        @apply mb-3 text-center;
+
+        font-size: 2em;
+    }
+
+    .catalog-contents {
+        @apply flex justify-center flex-wrap;
+
+        background-color: $color;
+    }
+
+    .game {
+        @apply w-full md:w-3/12 m-3;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.game {
+    @apply w-full flex flex-col items-center justify-center mb-5 mt-10;
+
+    &-contents {
+        @apply w-full md:w-9/12 p-3 pb-14 flex flex-col md:flex-row;
+
+        background-color: $color;
+       
+        &-buy-image {
+            @apply flex flex-col w-full md:w-1/2;
+
+
+            .buy-section {
+                @apply cursor-pointer w-full flex justify-between items-center p-2;
+
+                background-color: darken(red, 20);
+                font-size: 1.3em;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: darken(red, 10);
+                }
+            }
+        }
+
+        &__image {
+            @apply w-full h-auto;
+        }
+
+        &__description {
+            @apply md:ml-16 md:mt-0 mt-6 w-full md:w-2/3 flex flex-col items-center justify-center;
+
+            font-size: 1.4em;
+            line-height: 1.5;
+
+            table {
+                @apply mt-5;
+
+                td, th, tr {
+                    @apply p-2;
+
+                    border: 1px solid white;
+                }
+
+                thead {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

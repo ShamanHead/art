@@ -1,0 +1,17 @@
+version: "3"
+
+services: 
+  database:
+    image: mariadb:latest
+    container_name: store-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: 3313
+      MARIADB_DATABASE: "store"
+  
+  pma:
+    image: phpmyadmin
+    container_name: store-pma
+    environment:
+      PMA_HOST: database
+    ports:
+      - "8080:80"
