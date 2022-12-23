@@ -340,3 +340,68 @@ header {
         }
     }
 }
+
+.form {
+    @extend .game;
+
+    &-contents {
+        @extend .game-contents;
+        @apply flex-col items-center p-4;
+    }
+
+    input {
+        @apply p-7 mt-5;
+
+        color: white;
+        font-size: 20px;
+        background: #C66969;
+        border-radius: 40px;
+
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    button {
+        @apply pr-7 pl-7 pt-4 pb-4 mt-5;
+        background-color: red;
+        font-size: 20px;
+        border-radius: 40px;
+    }
+}
+
+.cart {
+    @extend .game;
+
+    &-contents {
+        @extend .game-contents;
+        @apply flex-col md:flex-row items-center p-4;
+    }
+
+    .game {
+        @apply flex flex-col w-1/5;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.profile {
+    @extend .game;
+
+    &-contents {
+        @extend .game-contents;
+        @apply flex-col items-center p-4;
+
+        font-size: 25px;
+    }
+
+    button {
+        @apply pr-7 pl-7 pt-4 pb-4 mt-5;
+        background-color: red;
+        font-size: 20px;
+        border-radius: 40px;
+    }
+}

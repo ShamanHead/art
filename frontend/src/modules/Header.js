@@ -6,11 +6,11 @@ export default function Header (props) {
    
     const menu = 
         [
-            <Link to="/" className="cabinet">Личный кабинет</Link>,
-            <a href="#" className="basket">Корзина</a>,
-            <a href="#" className="enter">Войти</a>,
-            <a href="#" className="registration">Регистрация</a>,
-            <a href="#" className="callback">Обратная связь</a>
+            <Link to="/profile" className="cabinet">Личный кабинет</Link>,
+            <Link to="/cart" className="cabinet">Корзина</Link>,
+            <Link to="/login" className="cabinet">Войти</Link>,
+            <Link to="/register" className="cabinet">Регистрация</Link>,
+            <a href="https://google.com?s=Обратная+связь" className="callback">Обратная связь</a>
         ]
 
     return (
