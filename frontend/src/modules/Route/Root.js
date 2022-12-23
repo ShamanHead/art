@@ -11,11 +11,12 @@ import {
 import Router from "./Router";
 
 export default function Root (props) {
+    const [cart, setCart] = useState([]);
     
     return (
         <div className="contents">
             <Router/>
-            <Outlet/>
+            <Outlet context={[cart, setCart]}/>
             <footer>
                 Artem©
             </footer>

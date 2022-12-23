@@ -33,7 +33,7 @@ const router = createBrowserRouter([
                 },
                 {
                     path: "/game/:id",
-                    element: <Game />,
+                    element: <Game/>,
                     loader: async ({ params }) => {
                         return fetch("http://localhost:3000/games/" + params.id);
                     },
@@ -60,7 +60,6 @@ const router = createBrowserRouter([
 
 
 export default function App() {
-
     return (
         <Provider store={store}>
             <RouterProvider router={router} />

@@ -379,11 +379,23 @@ header {
     }
 
     .game {
-        @apply flex flex-col w-1/5;
+        @apply flex flex-col mr-3 w-full md:w-1/5;
 
         img {
             width: 100%;
             height: auto;
+        }
+    }
+
+    .price {
+        @apply flex mt-7;
+        
+        font-size: 1.3em;
+
+        .real-price {
+            @apply ml-4;
+            color: red;
+            text-decoration: line-through;
         }
     }
 }

@@ -5,10 +5,28 @@ import {
     useRef
 } from "react";
 import {useLoaderData} from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function Game (props) {
     const data = useLoaderData(),
-        [table, setTable] = useState(0);
+        [table, setTable] = useState(0),
+        [cart, setCart] = useOutletContext();
+    
+    const handleClick = () => {
+        let temp = cart;
+
+        console.log(cart)
+
+        temp.push(data[0].id)
+
+        if(cart.length === [... new Set(temp)].length && cart.length > 0) {
+            alert("Товар уже в корзине!");
+        } else {
+            alert("Товар был добавлен в корзину")
+        }
+
+        setCart([...new Set(temp)])
+    }
 
     useEffect(() => {
         let tableTemp = [];
@@ -34,7 +52,7 @@ export default function Game (props) {
             <div className="game-contents">
                 <div className="game-contents-buy-image">
                     <img src={data[0].img} className="game-contents__image"/>
-                    <div className="buy-section">
+                    <div onClick={handleClick} className="buy-section">
                         В корзину 
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg> 
                     </div>
