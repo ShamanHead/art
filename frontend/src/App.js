@@ -13,7 +13,6 @@ import RegisterPage from "./RegisterPage";
 import LoginPage from "./LoginPage";
 import ProfilePage from "./ProfilePage";
 import CartPage from "./CartPage";
-import { Provider } from 'react-redux'
 
 import "./style/index.scss"
 import 'swiper/css';
@@ -33,7 +32,7 @@ const router = createBrowserRouter([
                 },
                 {
                     path: "/game/:id",
-                    element: <Game/>,
+                    element: <Game />,
                     loader: async ({ params }) => {
                         return fetch("http://localhost:3000/games/" + params.id);
                     },
@@ -61,9 +60,7 @@ const router = createBrowserRouter([
 
 export default function App() {
     return (
-        <Provider store={store}>
-            <RouterProvider router={router} />
-        </Provider>
+        <RouterProvider router={router} />
     );
 }
 
