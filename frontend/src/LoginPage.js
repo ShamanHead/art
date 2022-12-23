@@ -1,4 +1,17 @@
+import {useEffect} from 'react';
+
+import store from './store'
+
 export default function LoginPage(props) {
+
+    useEffect(() => {
+        console.log(store.getState());
+    })
+
+    const handleClick = () => {
+        store.dispatch({ type: 'LOGIN_SUCCEEDED' })
+
+    }
 
     return (
         <div className="form">
@@ -6,7 +19,7 @@ export default function LoginPage(props) {
             <div className="form-contents">
                 <input type="text" placeholder="Логин" className="login" />
                 <input type="text" placeholder="Пароль" className="password" />
-                <button>Войти</button>   
+                <button onClick={handleClick}>Войти</button>
             </div>
         </div>
     )

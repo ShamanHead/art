@@ -44,12 +44,12 @@ router.post('/login', function(req, res, next) {
 
 })
 
-router.post('/login', function(req, res, next) {
+router.post('/register', function(req, res, next) {
 
     var email = req.body.email;
     var password = req.body.password;
 
-    connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], function(err, rows, fields) {
+    connection.query('INSERT INTO users ()', [email, password], function(err, rows, fields) {
         if (err) throw err
 
         // if user not found

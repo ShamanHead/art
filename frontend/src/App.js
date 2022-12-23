@@ -1,8 +1,8 @@
-import {React} from "react"
+import { React } from "react"
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+    createBrowserRouter,
+    RouterProvider,
 } from "react-router-dom";
 
 import Root from "./modules/Route/Root";
@@ -13,43 +13,46 @@ import RegisterPage from "./RegisterPage";
 import LoginPage from "./LoginPage";
 import ProfilePage from "./ProfilePage";
 import CartPage from "./CartPage";
+import { Provider } from 'react-redux'
 
 import "./style/index.scss"
 import 'swiper/css';
 
+import store from "./store"
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root/>,
-        errorElement: <RouteError/>,
-        children: 
+        element: <Root />,
+        errorElement: <RouteError />,
+        children:
             [
                 {
                     path: "/",
-                    element: <Homepage/>
+                    element: <Homepage />
                 },
                 {
                     path: "/game/:id",
-                    element: <Game/>, 
-                    loader: async ({params}) => {
-                        return fetch("http://localhost:3000/games/" + params.id);  
+                    element: <Game />,
+                    loader: async ({ params }) => {
+                        return fetch("http://localhost:3000/games/" + params.id);
                     },
                 },
                 {
                     path: "/register",
-                    element: <RegisterPage/>
+                    element: <RegisterPage />
                 },
                 {
                     path: "/login",
-                    element: <LoginPage/>
+                    element: <LoginPage />
                 },
                 {
                     path: "/profile",
-                    element: <ProfilePage/>
+                    element: <ProfilePage />
                 },
                 {
                     path: "/cart",
-                    element: <CartPage/>
+                    element: <CartPage />
                 }
             ]
     }
@@ -58,10 +61,10 @@ const router = createBrowserRouter([
 
 export default function App() {
 
-  return (
-            <div>
-                <RouterProvider router={router}/> 
-            </div>
-          );
+    return (
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
+    );
 }
 
