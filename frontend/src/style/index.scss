@@ -15,6 +15,7 @@ body {
     background-image: url("../../public/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
 code {
@@ -34,11 +35,11 @@ h2 {
     font-size: 2em;
 }
 
-$color: rgba(0,0,0,0.5);
-
 .contents {
     min-height: 100vh;
 }
+
+$color: rgba(0,0,0,0.5);
 
 .error {
     @apply flex flex-col justify-center items-center;

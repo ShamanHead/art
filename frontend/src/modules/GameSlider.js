@@ -92,7 +92,7 @@ export default function GameSlider(props) {
         }
 
         setGames(result);
-    })
+    }, [])
 
     return (
         <div className="game-slider">

@@ -14,10 +14,12 @@ import LoginPage from "./LoginPage";
 import ProfilePage from "./ProfilePage";
 import CartPage from "./CartPage";
 
-import "./style/index.scss"
-import 'swiper/css';
+import { Provider } from 'react-redux'
 
 import store from "./store"
+
+import "./style/index.scss"
+import 'swiper/css';
 
 const router = createBrowserRouter([
     {
@@ -57,10 +59,11 @@ const router = createBrowserRouter([
     }
 ]);
 
-
 export default function App() {
     return (
-        <RouterProvider router={router} />
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
     );
 }
 
